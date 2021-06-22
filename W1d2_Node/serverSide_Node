@@ -1,0 +1,89 @@
+==> Node js 
+--> it is a javascript framework help us to built server side application in js evniroment.
+==> single threadeddeded  serving some data to client side 
+==> client side  
+==> Front-end/Client-side:HTML,CSS and javascript
+==> Back-end/Server-side: serving some data to client side(mobile or computer)(Node js,PHP, Phyton) 
+
+==>Full Stack Web Development if we can develope server-side and Client-side application the same time.
+--------------------------------------------
+Node js is 
+--------------------------------------------
+==> single threaded web server
+==>JavaScript runtime built on Chrome V8 JavaScript Engine
+==> Server-side JavaScript
+==> Allows script programs do I/O in JavaScript
+==>Event-driven, non-blocking I/O
+==>Single Threaded
+==>Node.js runs using a single thread
+==>CommonJS module system
+==> Focused on Performance
+
+Process vs Thread
+--------------------------------
+=>A Process is an application’s executing program lives in memory.  
+=>A Thread lives inside of process and executes any part of its process's program. 
+=>A process can have multiple thread or single thread. 
+
+=>I/O: A communication between CPU and any other process external to the CPU (memory, disk, network)=>I/O latency is defined simply as the time that it takes to complete a single I/O operation.
+
+=>Synchronously: 
+* in a sequence, i.e. every statement of the code gets executed one by one
+* we need to wait every line to completed  
+=>Asynchronously:
+Asynchronous code doesn't have to wait – your program can continue to run.
+
+==>Blocking vs non-blocking
+Blocking methods execute synchronously it takes more time 
+non-blocking methods execute asynchronously(uses setTimeout)
+==> What happend if we block V8 => the event loop did not able pick call back function  and push to v8.and also it will not able to reach to Asynchronous operation.
+
+Node JS Architecture 
+–Single Threaded Event Loop
+if there is a request event loop take this request will checks if the request is Blocking IO or NOn blocking IO, if it is NOn blocking IO executed it or if it is Blocking IO the event loop assign this request to treaded inside node js.
+
+Single Threaded Event Loop Advantages
+==>we dont need to create thread
+==>Handling more and more concurrent client’s request is very easy.
+==> Even though our Node JS Application receives more and more Concurrent
+client requests, there is no need of creating more and more threads, because
+of Event loop.
+=> Node JS application uses less Threads so that it can utilize only less resources
+or memory
+
+
+The Server Global Environment
+In Node we run JS on the server so we don’t have window object. Instead Node provides us with global modules and methods that are automatically created for us
+module
+global (The global namespace object)
+process
+buffer
+require
+setInterval(callback, delay) and clearInterval() setTimeout(callback, delay) and clearTimeout()
+=================================================
+==>Inside Node
+==> java script engine 
+    = V8 Google's open source JavaScript engine.
+    = Translates your JS code into machine code 
+    = V8 is written in C++.
+==>libuv
+    =every Asynchronous file and file system operations handeled by libuv 
+    = provide non bloking IO(ie Asynchronous IO)
+==>Application
+here is your code, modules, and Node.js' built in modules, written in JS
+=================================================
+Server-side Event Loop
+A loop that picks events from the event queue and pushes their callbacks into the call stack.
+
+==>timers: this phase executes callbacks scheduled by setTimeout() and setInterval().
+==> pending callbacks: executes I/O callbacks deferred to the next loop iteration.
+==>idle, prepare: only used internally.
+==>poll: All the IO operation reading from file or network goes here. retrieve new I/O events; execute I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when appropriate.
+==>check: setImmediate() callbacks are invoked here.
+==>close callbacks: some close callbacks, e.g. socket.on('close', ...)if we listen close events goes here.
+
+==>nextTick is pioriarity queue
+Which means it runs before any additional I/O events or timers fire in subsequent ticks of the event loop.
+==>1st everything in nextTick executed then the rest will executed.
+
+==> Microtask queue = handle promise callbacks 
