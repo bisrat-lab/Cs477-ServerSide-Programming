@@ -1,0 +1,72 @@
+Modules in NodeJS
+Modules
+it is the way creating difffrent js file to controle what to share or not.
+In Node.js, each file is treated as a separated module
+ 
+==> A set of functions you want to include in your application
+if it will start ../ is is not built in module 
+
+Type of Modules
+-----------------------------------------------
+==>Built-in Modules: we can use without any futher installation(buffer,fs,path) const fs = require('fs')
+==> 3rd party modules 
+==> Your own Modules(Simply create a normal JS file it will be a module)
+
+==>require() function
+The basic functionality of require is that it reads a JavaScript file, executes the file, and
+then proceeds to return the module.exports object.
+
+RULE 
+if the file doesn't start with "./" or "/", then it is either considered a core module (and the
+local Node path is checked), or a dependency in the local node_modules folder.
+==>If the file starts with "./" it is considered a not builtin module and start looking in the current folder.
+=>If the file starts with "/", it is considered an absolute path.
+==> when we use require it will return whatever inside module.exports.
+
+==>How require works
+node goes through this step:
+1. Resolve: to find the absolute path of the file(which folder I go or which built in module);
+2. Load: to determine the type of the file content
+3. Wrap: to give the file its private scope.
+every module have it's own private scope.
+require will take our code and wrap to the function.
+4. Evaluate: This is what the VM does with the loaded code
+5. Cache: when we require this file again, don’t go over all the steps.
+
+==wrapper
+1. require will take our code and wrap to the function.the purpase is it will give us difffrent scope so every single module have difffrent scope and also we can access the function parameter like __dirname, __filename
+
+2. Node will run the function using .apply()
+3.  Node will return the following:
+return module.exports;
+
+Buffer
+==> fixed size memory area. 
+==> when we create buffer we create fixed size memory 
+==>A buffer is an area of memory. It represents a fixed-size chunk of memory (can't be resized) allocated outside of the V8 JavaScript engine.
+
+Use of Buffer
+==> it helps us to mainapulate binary datas
+==> so we can deal wilt binary data
+
+path module
+==>used for to access and intract with the file system.
+==> also used to join two paths 
+e.g fs.readFile(path.join('./',test.txt'))
+const path = require('path');
+
+fs module
+==> used to read and write files from our computer 
+==> to access and interact with the file system.
+
+there are two ways sync of asyn 
+
+Stream:
+is a pipe clint can subscribe the data when ever the data is ready.
+==>Stream is a way to handle reading/writing files, network communications, or any kind of end-to-end information exchange in an efficient way.
+
+
+Web Server
+const http = require('http');
+const server = http.createServer();
+ 
