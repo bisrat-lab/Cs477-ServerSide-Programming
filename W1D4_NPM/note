@@ -1,0 +1,36 @@
+
+==>A package in Node.js contains all the files you need for a module. 
+==> Modules are JavaScript libraries you can include in your project.
+==>npm is the Node package manager for Node.js. It also manages downloads of dependencies (third party)of your project.
+==>npm init => to create "package.json".
+==> When we install a package 
+    * dependency object added in the package.json file 
+    * new folder created node_modules
+
+==>The package.json file is kind of a manifest for your project.
+==>dependencies: sets a list of npm packages installed as dependencies
+
+Semantic Versioning X.Y.Z ==> 
+* the first digit is the major version(Mab be break the code or API) when you make incompatible API changes
+* the second digit is the minor version(Does not break the API),when you add functionality in a backward-compatible
+manner
+* the third digit is the patch version(when you make backward-compatible bug fixes)
+
+==> when we run npm update npm sets some rules we can use in package.json file to chose which version it can update ower packages to
+==> when we run npm update node chackes the character infornt of the virsion 
+==>"^0.13.0" when run npm it can update to 0.13.1 or 0.14.2 NOT to 1.14.0.
+==>~: if you write ~0.13.0 when running npm update it can update to patch releases: 0.13.1 is ok, but 0.14.0 is not.
+==> "0.13.0" when run npm it can update to the current virsion 
+
+More about HTTP
+http://localhost:3000/product/electronic?name=bisrat&last=kassa
+http: ==> protocol
+port ==> 3000
+localhost ==> hostname
+product/electronic ==> path varable
+?name=bisrat&last=kassa==> quiry Strings
+
+
+HTTPS Vs HTTP
+==>HTTPS: stands for Hyper Text Transfer Protocol Secure. It is a protocol for securing the communication between two systems
+==>HTTP:in HTTP the communication between two system is unsecure or no encription between them. 

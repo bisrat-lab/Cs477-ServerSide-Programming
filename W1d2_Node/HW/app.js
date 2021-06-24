@@ -31,13 +31,22 @@ setImmediate is similar in this regard except that it doesn’t use queue of fun
 2. nextTick() run before any other I/O event is fired, while with setImmediate(), the execution is queued behind any I/O event that is already in the queue.
 
 3. 1.Class: Buffer
-  2.console
-  3.process
-  4.global
-  5.setImmediate
-  6.clearImmediate
-  7.setInterval
-  8.clearInterval
-  9.setTimeout
-  10. clearTimeout
+
+2.file System
+
+3.process
+
+4.global
+
+5.HTTP
+
+6.OS
+
+7.Path
+
+8.Query String
+
+9.Stream
+
+10. URL
 */

@@ -4,10 +4,16 @@ const readable = fs.createReadStream( "b.jpg", {
 });
 const writable = fs.createWriteStream( "destinationFile.jpg");
 
-// readable.on("data", function (chunk) {
-//   console.log(chunk.length);
-//   writable.write(chunk);
-// });
+readable.on("data", function (chunk) {
+  console.log(chunk.length);
+  writable.write(chunk);
+});
 
 // * or easly 
 readable.pipe(writable)
+
+
+ 
+ 
+
+

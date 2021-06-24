@@ -36,3 +36,24 @@ http
   .listen(5000, () => {
     console.log("listening on 5000...");
   });
+
+//!Example
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
+
+http.createServer((req,res)=>{
+    if(req.url == '/'){
+        res.writeHead(200,{ "Content-Type": "text/html"})
+        res.write('Home page ');
+        res.end()
+    }
+    if(req.url == '/about'){
+        res.writeHead(200,{ "Content-Type": "text/html"})
+        res.write('about page');
+        res.end()
+    }
+})
+.listen(7000,()=>{
+    console.log("server runing on 7000....")
+})
