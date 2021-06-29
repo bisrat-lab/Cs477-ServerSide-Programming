@@ -1,15 +1,22 @@
-// //!createing Stream  
+// //!creating Stream 
+const read = fs.createReadStream('./bis.txt')
+read.on('data',function(chunk){
+    console.log(chunk.toString())
+})
+
 //const readable = fs.createReadStream("./test.txt",{
 //     highWaterMark : 1024  // *config Object
-// })// to sent chanks witm 1mg
+// })
 // //* by defult 65000
 
 //* creating stream 
 const readable = fs.createReadStream("./test.txt");
-// const writable = fs.createWriteStream('./copy.txt');
-
+const writable = fs.createWriteStream('./copy.txt');
  readable.on('data',function(chunk){
     writable.write(chunk)
+ })
+ readable.on('end',function(){
+   console.log("write complete")
  })
 // or
 // readable.pipe(writable)

@@ -1,7 +1,7 @@
 ==> Node js 
 --> it is a javascript framework help us to built server side application in js evniroment.
-==> single threadeddeded  serving some data to client side 
-==> client side  
+==> single threaded serving some data to client side 
+ 
 ==> Front-end/Client-side:HTML,CSS and javascript
 ==> Back-end/Server-side: serving some data to client side(mobile or computer)(Node js,PHP, Phyton) 
 
@@ -40,16 +40,16 @@ non-blocking methods execute asynchronously(uses setTimeout)
 
 Node JS Architecture 
 –Single Threaded Event Loop
-if there is a request event loop take this request will checks if the request is Blocking IO or NOn blocking IO, if it is NOn blocking IO executed it or if it is Blocking IO the event loop assign this request to treaded inside node js.
+if there is a request event loop take this request will checks if the request is Blocking I/O or NON-blocking I/O, if it is NON-blocking I/O executed it or if it is Blocking I/O the event loop assign this request to treaded inside node js.
 
 Single Threaded Event Loop Advantages
 ==>we dont need to create thread
 ==>Handling more and more concurrent client’s request is very easy.
 ==> Even though our Node JS Application receives more and more Concurrent
-client requests, there is no need of creating more and more threads, because
-of Event loop.
-=> Node JS application uses less Threads so that it can utilize only less resources
-or memory
+client requests, there is no need of creating more and more threads, because of Event loop.
+
+=> Node JS application uses less Threads so that it can utilize only less resources or memory
+
 
 
 The Server Global Environment
@@ -73,6 +73,7 @@ setInterval(callback, delay) and clearInterval() setTimeout(callback, delay) and
 here is your code, modules, and Node.js' built in modules, written in JS
 =================================================
 Server-side Event Loop
+==> The event loop is what allows Node.js to perform non-blocking I/O operations
 A loop that picks events from the event queue and pushes their callbacks into the call stack.
 
 ==>timers: this phase executes callbacks scheduled by setTimeout() and setInterval().
@@ -82,8 +83,12 @@ A loop that picks events from the event queue and pushes their callbacks into th
 ==>check: setImmediate() callbacks are invoked here.
 ==>close callbacks: some close callbacks, e.g. socket.on('close', ...)if we listen close events goes here.
 
-==>nextTick is pioriarity queue
+==>nextTick is pioriarity queue(it execuite first)
 Which means it runs before any additional I/O events or timers fire in subsequent ticks of the event loop.
 ==>1st everything in nextTick executed then the rest will executed.
 
-==> Microtask queue = handle promise callbacks 
+==> Microtask queue = handle promise callbacks (second)
+1.nextTick
+2.Microtask
+3.timers
+2. check
