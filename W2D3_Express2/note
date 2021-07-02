@@ -1,0 +1,66 @@
+ ==>REST = REpresentational State Transfer
+ ==>API is always needed to create mobile applications, single page applications, use AJAX calls and provide data to clients.
+==>An popular architectural style of how to structure and name these APIs and the endpoints is called REST(Representational Transfer State)
+
+==>Convension(Resource/entity/Repository ) that we have to flows in Rest API 
+    ==>CRUD(Create, Retrive, Update, Delete)
+    ==>use HTTP verb  
+    //GET: fatch all app.get=> Retrieves an entity or a list of entities
+    //POST : create app.pots ==> Submits a new entity (use Post Body)
+    //DELETE : remove => Delete an existing entity
+    //PUT : update;app.put ==>Updates an entity partially(use Post Body)
+    ==>we are providing the only data 
+    ==>In Rest API we allways returning JSON 
+
+==> Advantage of restfull(Architural Constraints)
+Uniform Interface ==>we have to use repository name lisk(Users, Products) 
+client- server => our job only provide the data
+stateless==> http protocles are stattless
+cacheable ==> clints ca chche response 
+
+Stateful vs Stateless
+==>Stateful
+if we Keeps/save data in server memory (Authorization servers are often stateful services, they store issued tokens in database/memory for future checking
+)
+==>Stateless
+Does not keep/save any data in server memory (issuing JWT tokens as access tokens) 
+
+==>Idempotent vs Safe Method
+==>Idempotent is clients can make that same call repeatedly while producing the same result.
+==>when making multiple identical requests has the same effect as making a single request – then that REST API is called idempotent.
+==>GET, PUT, DELETE, HEAD, OPTIONS and TRACE are idempotent.
+==>POST is NOT idempotent.
+==>if we keep sending same request over and over it will not change the server is Idempotent(like Get,delete)
+
+Safe Method
+Safe methods are HTTP methods that do not modify resources
+we can change the data one time.
+==>Safe Method if we keep sending same request over and over it will never chanded the date on the server (Get)
+
+
+
+==>Best Practices for Naming REST API Endpoints
+Namming our endpoints
+==>always lowercase  => use lowercase letters in your API URLs =>/users/{id}/pending-orders
+==>always noun ==>Use nouns for naming URIs /users/  not getUser
+==>Always describe resources in plural.
+
+//API Versioning 
+==>Versioning is useful because it allows you to commit breaking changes to your service without breaking the code for existing consumers.
+
+It can be implemented in two ways:
+API version should be set in HTTP headers
+API version is embedded into the API endpoint prefix:/api/v1/.... 
+    This strategy involves putting the version number in the path of the URI, and is often done with the prefix "v".
+ 
+
+ How Does Express app work :
+ Middleware Routes,Error Handling -> run every request
+
+ app.use() 
+ => work for all HTTP verbs.
+ => Accept one request handler function.
+
+ app.VERB()
+  => work for specific HTTP verbs.
+  => Accept muiltiple request handler function.

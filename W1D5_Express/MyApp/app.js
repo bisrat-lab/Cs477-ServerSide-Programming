@@ -59,6 +59,13 @@ app.use('/users', usersRouter);
 app.use('/courses',courseRouter)
 app.use('/student',sttudentRouter)
 
+app.get('/',(req,res)=>{
+  res.json({
+      first : req.query.fname,
+      last:  req.query.lname,
+      zip : "25656"
+  })
+})
 app.get('/product',(req,res)=>{
   res.send("<h1> hello Express</h1>")
   res.json({age:20})

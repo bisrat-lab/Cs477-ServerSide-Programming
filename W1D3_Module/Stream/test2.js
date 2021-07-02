@@ -1,15 +1,16 @@
 const http = require("http");
-const server = http.createServer();
-const fs = require('fs')
-
-
+const fs = require("fs");
+const path = require('path')
+ 
 http
   .createServer((req, res) => {
-    //*strem
-     const readStream = fs.createReadStream("./bis.txt")
-     readStream.on('data',function(chunk){
-         console.log(chunk)
-        res.end(chunk)
-    })
+    if (req.method === "GET" && req.url === "/") {
+      res.end("I am learning Node JS");
+    } else if (req.method === "POST" && req.url === "/") {
+      const writable = fs.createWriteStream(path.join(__dirname,'content.txt'));
+      writable.write('Hellodd')
+      res.end();
+
+    }
   })
   .listen(3005);
