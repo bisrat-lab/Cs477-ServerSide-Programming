@@ -112,8 +112,6 @@ router.put("/:id", (req, res) => {
     })
     .indexOf(id);
   if (updated !== -1) {
-      console.log(empObj[updated]);
-
     empObj[updated] = {
       id: req.body.id,
       firstName: req.body.firstName,
@@ -123,9 +121,9 @@ router.put("/:id", (req, res) => {
     const writeStream = fs.createWriteStream(path.join(__dirname, "users.txt"));
     empObj.forEach((item) => {
       writeStream.write(item.id + "-" + item.firstName + "-" + item.lastName);
-      writeStream.write("\n");
+      
+      writeStream.end();
     });
-    writeStream.end();
     res.json({ status: "User updated" });
     return;
   }
