@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path')
 const router = express.Router();
 const booksmember = require('../bookmember')
+
+
 router.get('/',(req,res)=>{
   // const readFile = fs.readFileSync(path.join(__dirname,'books.txt'))
   // const jsonData = JSON.parse(readFile)

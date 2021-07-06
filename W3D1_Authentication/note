@@ -1,0 +1,50 @@
+Authentication/Authorization
+==> Mosh(
+   Authentication is the process of determining if the user is who he/she claims to be. It involves validating their email/password.
+   -Authorization is the process of determining if the user has permission to perform a given operation
+)
+
+
+==>Authentication solve the prombem that who we are
+=>Authentication is any process by which a system verifies the identity of a user
+who wishes to access it.
+==>Authentication may be implemented using Credentials, (like user Id and password)
+
+==>Authorization is determine 
+==>Authorization is the function of specifying access rights/permissions/privileges to
+resources,
+==>in this what you can do in the system.
+==>Authorization solve the proble what permissions do you have.
+
+Token-Based Authentication Systems Advantage
+==> Stateless => we didnot creat any array list code
+==> Scalability => no need to save thing server memory.
+==>CSRf: 
+==>Decoupled : does not depend on any thing 
+
+What is JSON web Token 
+=>it is open standared and it is JSON Object encoded in base64.
+==>Self-contained: the payload contains all the required info about the user.
+
+JSON Web Token (JWT) 
+==> Encoding means we have a  date and we represent the data in deffrent format.
+==> if user log in the system sucessfully i will retrn the Token(the string);
+This JWT string has 3 part 
+1. Header: consists of two parts specified Algrithem and Token type  (Encoded in Base64Ur) that what we use and contains the claims.
+   => Claims are statements about an entity (typically, the user) and additional metadata.
+=>Asymmetric Key cryptography, public(used to encritp the data )/private keys(used to decript the data);
+==>Symmetric Key cryptography uses one key to decrip and encript the data.(faster) 
+
+2. Payload: Data that we want acess whenever we decode this token (Encoded in Base64Ur)
+
+3. Verify Signture: it have spuer seceret key by using this key we can create the signture 26.
+==>To create the signature part you have to take the encoded header, the
+encoded payload, a secret, the algorithm specified in the header, and sign that
+
+
+How does JWT work?
+=>  In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned
+and must be saved locally (typically in local storage, but cookies can be also used).
+=>  Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically
+in the Authorization header using the Bearer schema. The content of the header should look like the
+following:

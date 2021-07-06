@@ -47,6 +47,7 @@ function table(arr){
         });
   })
  }
+
  function bookEdit(item){
    fetch('http://localhost:3002/api/v1/books/')
    .then(res => res.json())
@@ -54,7 +55,7 @@ function table(arr){
      let bookArray = data.data
      let idIndex = bookArray[item].id;  
      
-     console.log(bookArray);
+     console.log(idIndex);
     
 
     
@@ -81,13 +82,14 @@ function table(arr){
       })
         .then((res) => res.json())
         .then((data) => {
-         let bookArray = data.data
-         let idIndex = bookArray[item].id;  
-         bookArray[idIndex]={
-           id :  bookArray[item].id,
-           title : bookArray[item].title,
+        //  let bookArray = data.data
+        //  let idIndex = bookArray[item].id; 
+         console.log(data); 
+       
+           data.data.id ="idbody.value";
+           data.data.title = titlebody.value;
    
-         }
+         
         });
     })
     })
