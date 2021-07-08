@@ -13,8 +13,8 @@ router.post('/',(req,res)=>{
         data.id = 1;
         data.email = 'bisrat@gmail.com';
         data.createdOn = Date.now();
-        data.role = 'client';
-
+        data.role = 'admin';
+        
         const token = jwtManager.genreate(data);
         res.json({result: token, status:'sucess'})
     }else{

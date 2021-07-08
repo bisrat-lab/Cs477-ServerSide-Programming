@@ -1,0 +1,15 @@
+SQL vs NoSql
+=>no structure require 
+DB => Database name
+collections
+document 
+{}//arecord/document 
+
+
+mongo 
+show //view all the bd
+use test // create/use this test
+show collections // show all collections in test
+db.test.insert({name: "bisrat"})
+>show collections
+>db.test.find()//show all the documents 

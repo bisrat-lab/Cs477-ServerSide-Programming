@@ -1,0 +1,12 @@
+#prodForm{
+    border: solid;
+    border-radius: 5px;
+    padding: 60px;
+}
+#table{
+    border: solid 3px;  
+} 
+.space{
+    padding-left: 10px;
+}
+

@@ -26,6 +26,7 @@ app.use((req,res,next)=>{
     if(!data){
       return res.json({status: 'auth_error'})
     }
+    
     next();
   }
 })
