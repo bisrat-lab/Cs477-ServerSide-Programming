@@ -20,8 +20,10 @@ exports.authorize = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {
     const jwtToken = authHeader.split(" ")[1];
+    console.log(jwtToken);
     try {
       const payload = jwt.verify(jwtToken, secret);
+      console.log(payload);
       req.user = payload;
       next();
     } catch (error) {

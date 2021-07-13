@@ -1,4 +1,5 @@
 const url = `http://localhost:3004/products/`;
+
 function displayHome(){
   document.getElementById('product-container').style.display = 'none';
   document.getElementById('username').style.display = 'block';
@@ -8,15 +9,16 @@ function displayHome(){
 }
 function displayProductContent(){
   fetchProduct();
-    document.getElementById('product-container').style.display = 'block';
-    document.getElementById('username').style.display = 'none';
-    document.getElementById('password').style.display = 'none';
-    document.getElementById('login-btn').style.display = 'none';
-    document.getElementById('logout-btn').style.display = 'block'
-}
+  document.getElementById('product-container').style.display = 'block';
+  document.getElementById('username').style.display = 'none';
+  document.getElementById('password').style.display = 'none';
+  document.getElementById('login-btn').style.display = 'none';
+  document.getElementById('logout-btn').style.display = 'block'
+  }
 
-window.onload = function () {
 
+
+  window.onload = function () {   
   if(sessionStorage.getItem('accessToken')){
     displayProductContent();
   }else{
@@ -39,7 +41,13 @@ window.onload = function () {
         password : document.getElementById('password').value
       })
     }).then(res=> res.json());
-    console.log(result)
+
+    //!  I dont Know
+    // const t = result.jwtToken
+    // let tokenobj = JSON.parse(atob(t.split('.')[1]));
+    // console.log(tokenobj);
+
+
     if(result.jwtToken){
       sessionStorage.setItem('accessToken', result.jwtToken);
       

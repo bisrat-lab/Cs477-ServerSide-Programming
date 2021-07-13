@@ -4,16 +4,22 @@ module.exports.getAllProduct = (req, res, next) => {
   res.status(200).json(Product.getAll());
 };
 
-exports.save = (req, res, next) => {
+exports.save = async (req, res, next) => {
     const prod = req.body;
     console.log(prod);
-  const savedProd = new Product(
-    null,
-    prod.title,
-    prod.price,
-    prod.info
-  ).save();
-  res.json(savedProd);
+    try{
+
+      const savedProd = await new Product(
+        null,
+        prod.title,
+        prod.price,
+        prod.info
+      ).save();
+
+      res.json(savedProd);
+    }catch(error){
+      next(error);
+    }
 };
 
 exports.findProductById = (req, res, next) => {
@@ -35,3 +41,5 @@ exports.deleteById = (req, res, next) => {
   Product.deleteById(req.params.id);
   res.status(200).end();
 };
+
+

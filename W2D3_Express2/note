@@ -1,4 +1,5 @@
  ==>REST = REpresentational State Transfer
+ => Simple HTTP clin/server mechenism to exchange data.
  ==>API is always needed to create mobile applications, single page applications, use AJAX calls and provide data to clients.
 ==>An popular architectural style of how to structure and name these APIs and the endpoints is called REST(Representational Transfer State)
 

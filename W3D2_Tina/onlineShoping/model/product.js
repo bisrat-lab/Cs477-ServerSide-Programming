@@ -1,18 +1,22 @@
+const getDB = require('../utils/database').getDB;
 
 
 
 let products = [];
 class Product {
   constructor(id, title, price, info) {
-    this.id = id;
+    this._id = id;
     this.title = title;
     this.price = price;
     this.info = info;
   }
   static getAll() {
+    // return getDB().collection('products');
     return products;
   }
   save() {
+    // return getDB().collection('products').insertOne(this);
+
     this.id = Math.random().toString();
     products.push(this);
     return this;
@@ -26,6 +30,9 @@ class Product {
           throw new Error('Not Found')
       }
   }
+
+
+
 
   static getProductByID(productID) {
     return products.find((prod) => prod.id === productID);
@@ -41,5 +48,6 @@ class Product {
   }
 }
 module.exports = Product;
+
 
 

@@ -3,10 +3,7 @@ const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const productRoute = require('./routes/productRouter')
 const authRoute = require('./routes/authRouter');
-const mongoConnect = require('./utils/database');
-
-
-
+const mongoConnect = require('./utils/database').mongoConnect;
 
 const app = express();
 
@@ -16,13 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-
-
 //!router
 app.use(authRoute);
 app.use("/products", productRoute);
-
 
 //! error handler
 app.use(function (err, req, res, next) {

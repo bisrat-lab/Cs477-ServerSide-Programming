@@ -15,3 +15,9 @@ const users =[new User('john','admin123','admin'),new User('bisrat','bis123','us
 module.exports = User;
 
 
+
+
+
+
+
+

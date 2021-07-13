@@ -6,7 +6,7 @@ const mongoConnect = (callback) =>{
     .then(client =>{
             console.log("connected");
             _db = client.db('onlineshoping');
-            callback()
+            callback();
     }).catch(err => {throw new Error('Connection Failed')})
 }
 
@@ -18,5 +18,5 @@ const getDB =()=>{
     }
 }
 
-module.exports = mongoConnect;
+exports.mongoConnect = mongoConnect;
 exports.getDB = getDB;
