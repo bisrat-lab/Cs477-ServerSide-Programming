@@ -16,6 +16,8 @@ router.post('/',(req,res)=>{
         data.role = 'admin';
         
         const token = jwtManager.genreate(data);
+
+
         res.json({result: token, status:'sucess'})
     }else{
         res.json({status:'INvalid_user'})

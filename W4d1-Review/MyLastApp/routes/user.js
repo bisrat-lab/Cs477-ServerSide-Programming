@@ -19,6 +19,7 @@ function readFile() {
   });
   return userArray;
 }
+
 router.get("/", (req, res) => {
   const users = readFile();
   res.json({ status: "sucess", users });
@@ -54,7 +55,10 @@ router.post("/", (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id",authenticateJWT, (req, res) => {
+  if(req.user.role !== 'admin'){
+    res.json({mes: "you are not admin"})
+  }else{ 
     const users = readFile(); 
     const index = users.map((item) => item.id).indexOf(req.params.id);
   if (index !== -1) {
@@ -73,6 +77,7 @@ router.put("/:id", (req, res) => {
   }else{
     res.json({status:"sucess", massage: "User ID Not Found"})
   }
+}
 });
 
 router.delete("/:id",authenticateJWT,(req, res) => {

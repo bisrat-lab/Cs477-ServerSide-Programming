@@ -58,7 +58,6 @@ router.post("/",authenticateJWT,(req,res)=>{
         });
         res.json(books)
     }
- 
 })
 
 router.delete('/:id',(req,res)=>{

@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//! Middleware auth
 app.use((req,res,next)=>{
   if(req.url == '/api/auth'){
     next();
