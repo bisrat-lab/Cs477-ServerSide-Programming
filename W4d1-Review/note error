@@ -1,0 +1,8 @@
+==>Error Handling refers to how Express catches and processes errors that occur both
+synchronously and asynchronously.
+: You define error-handling middleware last, after other
+app.use() and routes calls
+
+Middleware: 
+haveing the same logic through out the couple middle rought,
+by using this feture we can implement validation ,authentication and authorization.

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const BookModel = require("./booksModel");
+const BookModel = require("./model/booksModel");
 
 function bookFileRead() {
   const readfile = fs

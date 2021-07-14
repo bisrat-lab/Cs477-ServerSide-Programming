@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 const readBookData = require("../readFile");
-const BookModel = require("../booksModel");
+const BookModel = require("../model/booksModel");
 
 function bookFileRead() {
   const readfile = fs

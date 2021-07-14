@@ -16,6 +16,7 @@ npm install -g express-generator
 function with three arguments:
  request
  response
+next
 
 Middleware functions can perform the following tasks:
 Execute any code.
