@@ -15,7 +15,7 @@ var app = express();
 
 //!Middleware 
 //app.use(cors()) //* please do not check the origin
-app.use(express.json()); //* convert the request to js Object
+app.use(express.json()); //* convert the request to js Object and also to acess the body.
 app.use(express.urlencoded({ extended: false }));//* reads the URl converts to js Object 
 app.use(cookieParser());
 

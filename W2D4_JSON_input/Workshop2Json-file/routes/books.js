@@ -6,8 +6,8 @@ const booksmember = require('../bookmember')
 
 
 router.get('/',(req,res)=>{
-  // const readFile = fs.readFileSync(path.join(__dirname,'books.txt'))
-  // const jsonData = JSON.parse(readFile)
+  const readFile = fs.readFileSync(path.join(__dirname,'books.txt'))
+  const jsonData = JSON.parse(readFile)
   console.log(booksmember)
   res.json({status:"sucess", data: booksmember})
   
